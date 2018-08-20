@@ -1,0 +1,286 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="golos.seminarski.hci.nekreatnine_hci.NekreatnineDetalji">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+          <android.support.v4.view.ViewPager
+                android:id="@+id/viewPageAndroid"
+                android:layout_width="match_parent"
+                android:layout_height="177dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lay11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_grad_det"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:text="Grad "
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_mjesto_det"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mjesto " />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:text="Cijena : "
+                android:textAlignment="textEnd"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="148dp">
+
+            <LinearLayout
+                android:id="@+id/lay2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lay14"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Povrsina : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cijena kvadrata : "
+                        android:paddingBottom="15dp"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sprat : "
+                        android:paddingBottom="15dp"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Uknjizeno : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opremljenost : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Grijanje : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Parking : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vrsta Nekreatnine : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="balkon : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kablovska Tv : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lift : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Plin : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_opis_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opis : "
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lay15"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        android:id="@+id/cijena_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cijena : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_povrsina_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Povrsina : "
+                        android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_kvadrat_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cijena kvadrata : "                         android:paddingBottom="15dp"/>
+
+
+                    <TextView
+                        android:id="@+id/txt_sprat_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sprat : "                         android:paddingBottom="15dp"/>
+
+
+                    <TextView
+                        android:id="@+id/txt_knjizeno_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Uknjizeno : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_opremljenost_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opremljenost : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_grijanje_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Grijanje : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_postStr_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Parking : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_vrstaNek"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vrsta Nekreatnine : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_balkon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="balkon : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_kablTv_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kablovska Tv : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_lift_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Lift : "                         android:paddingBottom="15dp"/>
+
+                    <TextView
+                        android:id="@+id/txt_plin_det"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Plin : "                         android:paddingBottom="15dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/lay3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btn_dodajFavorite"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:text="Dodaj u favorite" />
+
+            <Button
+                android:id="@+id/btn_kontaktiraj"
+                android:layout_width="183dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:text="Kontaktiraj" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

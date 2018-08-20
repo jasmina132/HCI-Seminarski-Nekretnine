@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nekreatnineModelStoreContainer" CdmEntityContainer="nekreatnineEntities">
+    <EntitySetMapping Name="Korisnici">
+      <EntityTypeMapping TypeName="nekreatnineModel.Korisnici">
+        <MappingFragment StoreEntitySet="Korisnici">
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+          <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DatumRegistracije" ColumnName="DatumRegistracije" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nekreatnina">
+      <EntityTypeMapping TypeName="nekreatnineModel.Nekreatnina">
+        <MappingFragment StoreEntitySet="Nekreatnina">
+          <ScalarProperty Name="NekreatninaId" ColumnName="NekreatninaId" />
+          <ScalarProperty Name="VrstaId" ColumnName="VrstaId" />
+          <ScalarProperty Name="LokacijaId" ColumnName="LokacijaId" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="Velicina" ColumnName="Velicina" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SlikeNekreatnina">
+      <EntityTypeMapping TypeName="nekreatnineModel.SlikeNekreatnina">
+        <MappingFragment StoreEntitySet="SlikeNekreatnina">
+          <ScalarProperty Name="SlikeNekreatninaId" ColumnName="SlikeNekreatninaId" />
+          <ScalarProperty Name="NekreatninaId" ColumnName="NekreatninaId" />
+          <ScalarProperty Name="Slika" ColumnName="Slika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StanApartman">
+      <EntityTypeMapping TypeName="nekreatnineModel.StanApartman">
+        <MappingFragment StoreEntitySet="StanApartman">
+          <ScalarProperty Name="StanId" ColumnName="StanId" />
+          <ScalarProperty Name="NekreatninaId" ColumnName="NekreatninaId" />
+          <ScalarProperty Name="CijenaKvadrata" ColumnName="CijenaKvadrata" />
+          <ScalarProperty Name="Uknjizeno" ColumnName="Uknjizeno" />
+          <ScalarProperty Name="Opremljenost" ColumnName="Opremljenost" />
+          <ScalarProperty Name="Grijanje" ColumnName="Grijanje" />
+          <ScalarProperty Name="Lift" ColumnName="Lift" />
+          <ScalarProperty Name="Balkon" ColumnName="Balkon" />
+          <ScalarProperty Name="Parking" ColumnName="Parking" />
+          <ScalarProperty Name="Plin" ColumnName="Plin" />
+          <ScalarProperty Name="KablovksaTv" ColumnName="KablovksaTv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VrstaNekreatnine">
+      <EntityTypeMapping TypeName="nekreatnineModel.VrstaNekreatnine">
+        <MappingFragment StoreEntitySet="VrstaNekreatnine">
+          <ScalarProperty Name="VrstaId" ColumnName="VrstaId" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lokacija">
+      <EntityTypeMapping TypeName="nekreatnineModel.Lokacija">
+        <MappingFragment StoreEntitySet="Lokacija">
+          <ScalarProperty Name="LokacijaId" ColumnName="LokacijaId" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Mjesto" ColumnName="Mjesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="nekreatnineModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_Nekreatnine_HCI" FunctionName="nekreatnineModel.Store.get_Nekreatnine_HCI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="nekreatnineModel.get_Nekreatnine_HCI_Result">
+          <ScalarProperty Name="NekreatninaId" ColumnName="NekreatninaId" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="Velicina" ColumnName="Velicina" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Slika" ColumnName="Slika" />
+          <ScalarProperty Name="Balkon" ColumnName="Balkon" />
+          <ScalarProperty Name="Grijanje" ColumnName="Grijanje" />
+          <ScalarProperty Name="Lift" ColumnName="Lift" />
+          <ScalarProperty Name="Opremljenost" ColumnName="Opremljenost" />
+          <ScalarProperty Name="Parking" ColumnName="Parking" />
+          <ScalarProperty Name="Plin" ColumnName="Plin" />
+          <ScalarProperty Name="Uknjizen" ColumnName="Uknjizen" />
+          <ScalarProperty Name="VrstaNekreatnine" ColumnName="VrstaNekreatnine" />
+          <ScalarProperty Name="NazivGrada" ColumnName="NazivGrada" />
+          <ScalarProperty Name="NazivMjesta" ColumnName="NazivMjesta" />
+          <ScalarProperty Name="CijenaKvadrata" ColumnName="CijenaKvadrata" />
+          <ScalarProperty Name="KablovskaTv" ColumnName="KablovskaTv" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="insert_Nekreatnine_HCI" FunctionName="nekreatnineModel.Store.insert_Nekreatnine_HCI" />
+    <FunctionImportMapping FunctionImportName="insert_SlikeNekreatnine_HCI" FunctionName="nekreatnineModel.Store.insert_SlikeNekreatnine_HCI" />
+    <FunctionImportMapping FunctionImportName="insert_StanApartman_HCI" FunctionName="nekreatnineModel.Store.insert_StanApartman_HCI" />
+    <EntitySetMapping Name="Favorit">
+      <EntityTypeMapping TypeName="nekreatnineModel.Favorit">
+        <MappingFragment StoreEntitySet="Favorit">
+          <ScalarProperty Name="NekreatninaId" ColumnName="NekreatninaId" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="FavoritId" ColumnName="FavoritId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Izdavac">
+      <EntityTypeMapping TypeName="nekreatnineModel.Izdavac">
+        <MappingFragment StoreEntitySet="Izdavac">
+          <ScalarProperty Name="NekreatninaId" ColumnName="NekreatninaId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="IzdavacId" ColumnName="IzdavacId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Poruka">
+      <EntityTypeMapping TypeName="nekreatnineModel.Poruka">
+        <MappingFragment StoreEntitySet="Poruka">
+          <ScalarProperty Name="Poruka1" ColumnName="Poruka" />
+          <ScalarProperty Name="Naslov" ColumnName="Naslov" />
+          <ScalarProperty Name="IzdavacId" ColumnName="IzdavacId" />
+          <ScalarProperty Name="KorisnikId" ColumnName="KorisnikId" />
+          <ScalarProperty Name="PorukaId" ColumnName="PorukaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_Nekreatnine_HCI_BySearch" FunctionName="nekreatnineModel.Store.get_Nekreatnine_HCI_BySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="nekreatnineModel.get_Nekreatnine_HCI_BySearch_Result">
+          <ScalarProperty Name="NekreatninaId" ColumnName="NekreatninaId" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="Velicina" ColumnName="Velicina" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="VrstaNekreatnine" ColumnName="VrstaNekreatnine" />
+          <ScalarProperty Name="NazivGrada" ColumnName="NazivGrada" />
+          <ScalarProperty Name="NazivMjesta" ColumnName="NazivMjesta" />
+          <ScalarProperty Name="Slika" ColumnName="Slika" />
+          <ScalarProperty Name="Balkon" ColumnName="Balkon" />
+          <ScalarProperty Name="CijenaKvadrata" ColumnName="CijenaKvadrata" />
+          <ScalarProperty Name="Grijanje" ColumnName="Grijanje" />
+          <ScalarProperty Name="KablovskaTv" ColumnName="KablovskaTv" />
+          <ScalarProperty Name="Lift" ColumnName="Lift" />
+          <ScalarProperty Name="Opremljenost" ColumnName="Opremljenost" />
+          <ScalarProperty Name="Parking" ColumnName="Parking" />
+          <ScalarProperty Name="Plin" ColumnName="Plin" />
+          <ScalarProperty Name="Uknjizen" ColumnName="Uknjizen" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nekreatnine_App", "Nekreatnine_App\Nekreatnine_App.csproj", "{F404750E-81D3-4229-AE68-97F668F58988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nekreatnine_UI", "Nekreatnine_UI\Nekreatnine_UI.csproj", "{AA685EE4-1561-42DF-AC62-B160A387153B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F404750E-81D3-4229-AE68-97F668F58988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F404750E-81D3-4229-AE68-97F668F58988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F404750E-81D3-4229-AE68-97F668F58988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F404750E-81D3-4229-AE68-97F668F58988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA685EE4-1561-42DF-AC62-B160A387153B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA685EE4-1561-42DF-AC62-B160A387153B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA685EE4-1561-42DF-AC62-B160A387153B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA685EE4-1561-42DF-AC62-B160A387153B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

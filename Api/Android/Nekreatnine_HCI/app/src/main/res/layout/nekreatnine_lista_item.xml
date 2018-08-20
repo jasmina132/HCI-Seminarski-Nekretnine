@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/lay11"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/nekreatninaCoverImage"
+                android:layout_width="120dip"
+                android:layout_height="120dip"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lay22"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_grad_nek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Naziv Grada" />
+
+                <TextView
+                    android:id="@+id/txt_grad_mjesto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Naziv Mjesta" />
+
+                <TextView
+                    android:id="@+id/txt_cijena_nek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cijena" />
+
+                <TextView
+                    android:id="@+id/txt_ocjena_nek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ocjena" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lay13"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_kvadratura_nek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kvadratura :"
+                    android:textAlignment="textEnd" />
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

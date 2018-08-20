@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nekreatnineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Korisnici">
+    <Key>
+      <PropertyRef Name="KorisnikId" />
+    </Key>
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KorisnickoIme" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DatumRegistracije" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Favorit" Relationship="nekreatnineModel.FK_Favorit_Korisnici" FromRole="Korisnici" ToRole="Favorit" />
+    <NavigationProperty Name="Poruka" Relationship="nekreatnineModel.FK_Poruka_Korisnici" FromRole="Korisnici" ToRole="Poruka" />
+  </EntityType>
+  <EntityType Name="Nekreatnina">
+    <Key>
+      <PropertyRef Name="NekreatninaId" />
+    </Key>
+    <Property Name="NekreatninaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VrstaId" Type="Int32" Nullable="false" />
+    <Property Name="LokacijaId" Type="Int32" Nullable="false" />
+    <Property Name="Cijena" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Velicina" Type="Int32" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lokacija" Relationship="nekreatnineModel.FK_Nekreatnina_Lokacija" FromRole="Nekreatnina" ToRole="Lokacija" />
+    <NavigationProperty Name="VrstaNekreatnine" Relationship="nekreatnineModel.FK_Nekreatnina_VrstaNekreatnine" FromRole="Nekreatnina" ToRole="VrstaNekreatnine" />
+    <NavigationProperty Name="SlikeNekreatnina" Relationship="nekreatnineModel.FK_SlikeNekreatnina_Nekreatnina" FromRole="Nekreatnina" ToRole="SlikeNekreatnina" />
+    <NavigationProperty Name="StanApartman" Relationship="nekreatnineModel.FK_StanApartman_Nekreatnina" FromRole="Nekreatnina" ToRole="StanApartman" />
+    <NavigationProperty Name="Favorit" Relationship="nekreatnineModel.FK_Favorit_Nekreatnina" FromRole="Nekreatnina" ToRole="Favorit" />
+    <NavigationProperty Name="Izdavac" Relationship="nekreatnineModel.FK_Izdavac_Nekreatnina" FromRole="Nekreatnina" ToRole="Izdavac" />
+  </EntityType>
+  <EntityType Name="SlikeNekreatnina">
+    <Key>
+      <PropertyRef Name="SlikeNekreatninaId" />
+    </Key>
+    <Property Name="Slika" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="NekreatninaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nekreatnina" Relationship="nekreatnineModel.FK_SlikeNekreatnina_Nekreatnina" FromRole="SlikeNekreatnina" ToRole="Nekreatnina" />
+    <Property Name="SlikeNekreatninaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="StanApartman">
+    <Key>
+      <PropertyRef Name="StanId" />
+    </Key>
+    <Property Name="StanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NekreatninaId" Type="Int32" Nullable="false" />
+    <Property Name="CijenaKvadrata" Type="Int32" />
+    <Property Name="Uknjizeno" Type="Boolean" />
+    <Property Name="Opremljenost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grijanje" Type="Boolean" />
+    <Property Name="Lift" Type="Boolean" />
+    <Property Name="Balkon" Type="Boolean" />
+    <Property Name="Parking" Type="Boolean" />
+    <Property Name="Plin" Type="Boolean" />
+    <Property Name="KablovksaTv" Type="Boolean" />
+    <NavigationProperty Name="Nekreatnina" Relationship="nekreatnineModel.FK_StanApartman_Nekreatnina" FromRole="StanApartman" ToRole="Nekreatnina" />
+  </EntityType>
+  <EntityType Name="VrstaNekreatnine">
+    <Key>
+      <PropertyRef Name="VrstaId" />
+    </Key>
+    <Property Name="VrstaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Nekreatnina" Relationship="nekreatnineModel.FK_Nekreatnina_VrstaNekreatnine" FromRole="VrstaNekreatnine" ToRole="Nekreatnina" />
+  </EntityType>
+  <EntityType Name="Lokacija">
+    <Key>
+      <PropertyRef Name="LokacijaId" />
+    </Key>
+    <Property Name="LokacijaId" Type="Int32" Nullable="false" />
+    <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mjesto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Nekreatnina" Relationship="nekreatnineModel.FK_Nekreatnina_Lokacija" FromRole="Lokacija" ToRole="Nekreatnina" />
+  </EntityType>
+  <EntityContainer Name="nekreatnineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Korisnici" EntityType="Self.Korisnici" />
+    <EntitySet Name="Nekreatnina" EntityType="Self.Nekreatnina" />
+    <EntitySet Name="SlikeNekreatnina" EntityType="Self.SlikeNekreatnina" />
+    <EntitySet Name="StanApartman" EntityType="Self.StanApartman" />
+    <EntitySet Name="VrstaNekreatnine" EntityType="Self.VrstaNekreatnine" />
+    <EntitySet Name="Lokacija" EntityType="Self.Lokacija" />
+    <EntitySet Name="sysdiagrams" EntityType="nekreatnineModel.sysdiagrams" />
+    <AssociationSet Name="FK_Nekreatnina_Lokacija" Association="nekreatnineModel.FK_Nekreatnina_Lokacija">
+      <End Role="Lokacija" EntitySet="Lokacija" />
+      <End Role="Nekreatnina" EntitySet="Nekreatnina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Nekreatnina_VrstaNekreatnine" Association="nekreatnineModel.FK_Nekreatnina_VrstaNekreatnine">
+      <End Role="VrstaNekreatnine" EntitySet="VrstaNekreatnine" />
+      <End Role="Nekreatnina" EntitySet="Nekreatnina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SlikeNekreatnina_Nekreatnina" Association="nekreatnineModel.FK_SlikeNekreatnina_Nekreatnina">
+      <End Role="Nekreatnina" EntitySet="Nekreatnina" />
+      <End Role="SlikeNekreatnina" EntitySet="SlikeNekreatnina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StanApartman_Nekreatnina" Association="nekreatnineModel.FK_StanApartman_Nekreatnina">
+      <End Role="Nekreatnina" EntitySet="Nekreatnina" />
+      <End Role="StanApartman" EntitySet="StanApartman" />
+    </AssociationSet>
+    <FunctionImport Name="get_Nekreatnine_HCI" ReturnType="Collection(nekreatnineModel.get_Nekreatnine_HCI_Result)" />
+    <FunctionImport Name="insert_Nekreatnine_HCI" ReturnType="Collection(Decimal)">
+      <Parameter Name="VrstaId" Mode="In" Type="Int32" />
+      <Parameter Name="LokacijaId" Mode="In" Type="Int32" />
+      <Parameter Name="Cijena" Mode="In" Type="Decimal" />
+      <Parameter Name="Velicina" Mode="In" Type="Int32" />
+      <Parameter Name="Opis" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="insert_SlikeNekreatnine_HCI">
+      <Parameter Name="NekreatninaId" Mode="In" Type="Int32" />
+      <Parameter Name="Slika" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="insert_StanApartman_HCI">
+      <Parameter Name="Nekreatnina" Mode="In" Type="Int32" />
+      <Parameter Name="CijenaKvadrata" Mode="In" Type="Int32" />
+      <Parameter Name="Uknjizeno" Mode="In" Type="Boolean" />
+      <Parameter Name="Opremljenost" Mode="In" Type="String" />
+      <Parameter Name="Grijanje" Mode="In" Type="Boolean" />
+      <Parameter Name="Lift" Mode="In" Type="Boolean" />
+      <Parameter Name="Balkon" Mode="In" Type="Boolean" />
+      <Parameter Name="Parking" Mode="In" Type="Boolean" />
+      <Parameter Name="Plin" Mode="In" Type="Boolean" />
+      <Parameter Name="KablovksaTv" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="Favorit" EntityType="nekreatnineModel.Favorit" />
+    <EntitySet Name="Izdavac" EntityType="nekreatnineModel.Izdavac" />
+    <EntitySet Name="Poruka" EntityType="nekreatnineModel.Poruka" />
+    <AssociationSet Name="FK_Favorit_Korisnici" Association="nekreatnineModel.FK_Favorit_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Favorit" EntitySet="Favorit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorit_Nekreatnina" Association="nekreatnineModel.FK_Favorit_Nekreatnina">
+      <End Role="Nekreatnina" EntitySet="Nekreatnina" />
+      <End Role="Favorit" EntitySet="Favorit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Izdavac_Nekreatnina" Association="nekreatnineModel.FK_Izdavac_Nekreatnina">
+      <End Role="Nekreatnina" EntitySet="Nekreatnina" />
+      <End Role="Izdavac" EntitySet="Izdavac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poruka_Izdavac" Association="nekreatnineModel.FK_Poruka_Izdavac">
+      <End Role="Izdavac" EntitySet="Izdavac" />
+      <End Role="Poruka" EntitySet="Poruka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Poruka_Korisnici" Association="nekreatnineModel.FK_Poruka_Korisnici">
+      <End Role="Korisnici" EntitySet="Korisnici" />
+      <End Role="Poruka" EntitySet="Poruka" />
+    </AssociationSet>
+    <FunctionImport Name="get_Nekreatnine_HCI_BySearch" ReturnType="Collection(nekreatnineModel.get_Nekreatnine_HCI_BySearch_Result)">
+      <Parameter Name="NazivGrada" Mode="In" Type="String" />
+      <Parameter Name="Balkon" Mode="In" Type="Boolean" />
+      <Parameter Name="Grijanje" Mode="In" Type="Boolean" />
+      <Parameter Name="Parking" Mode="In" Type="Boolean" />
+      <Parameter Name="Plin" Mode="In" Type="Boolean" />
+      <Parameter Name="VrstaNekreatnine" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Nekreatnina_Lokacija">
+    <End Type="nekreatnineModel.Lokacija" Role="Lokacija" Multiplicity="1" />
+    <End Type="nekreatnineModel.Nekreatnina" Role="Nekreatnina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lokacija">
+        <PropertyRef Name="LokacijaId" />
+      </Principal>
+      <Dependent Role="Nekreatnina">
+        <PropertyRef Name="VrstaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Nekreatnina_VrstaNekreatnine">
+    <End Type="nekreatnineModel.VrstaNekreatnine" Role="VrstaNekreatnine" Multiplicity="1" />
+    <End Type="nekreatnineModel.Nekreatnina" Role="Nekreatnina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VrstaNekreatnine">
+        <PropertyRef Name="VrstaId" />
+      </Principal>
+      <Dependent Role="Nekreatnina">
+        <PropertyRef Name="VrstaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SlikeNekreatnina_Nekreatnina">
+    <End Type="nekreatnineModel.Nekreatnina" Role="Nekreatnina" Multiplicity="1" />
+    <End Type="nekreatnineModel.SlikeNekreatnina" Role="SlikeNekreatnina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nekreatnina">
+        <PropertyRef Name="NekreatninaId" />
+      </Principal>
+      <Dependent Role="SlikeNekreatnina">
+        <PropertyRef Name="NekreatninaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StanApartman_Nekreatnina">
+    <End Type="nekreatnineModel.Nekreatnina" Role="Nekreatnina" Multiplicity="1" />
+    <End Type="nekreatnineModel.StanApartman" Role="StanApartman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nekreatnina">
+        <PropertyRef Name="NekreatninaId" />
+      </Principal>
+      <Dependent Role="StanApartman">
+        <PropertyRef Name="NekreatninaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="get_Nekreatnine_HCI_Result">
+    <Property Type="Int32" Name="NekreatninaId" Nullable="false" />
+    <Property Type="Decimal" Name="Cijena" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="Int32" Name="Velicina" Nullable="true" />
+    <Property Type="String" Name="Opis" Nullable="true" />
+    <Property Type="Binary" Name="Slika" Nullable="true" />
+    <Property Type="Boolean" Name="Balkon" Nullable="true" />
+    <Property Type="Boolean" Name="Grijanje" Nullable="true" />
+    <Property Type="Boolean" Name="Lift" Nullable="true" />
+    <Property Type="String" Name="Opremljenost" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Parking" Nullable="true" />
+    <Property Type="Boolean" Name="Plin" Nullable="true" />
+    <Property Type="Boolean" Name="Uknjizen" Nullable="true" />
+    <Property Type="String" Name="VrstaNekreatnine" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NazivGrada" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NazivMjesta" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CijenaKvadrata" Nullable="true" />
+    <Property Type="Boolean" Name="KablovskaTv" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Favorit">
+    <Key>
+      <PropertyRef Name="FavoritId" />
+    </Key>
+    <Property Name="FavoritId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+    <Property Name="NekreatninaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Korisnici" Relationship="nekreatnineModel.FK_Favorit_Korisnici" FromRole="Favorit" ToRole="Korisnici" />
+    <NavigationProperty Name="Nekreatnina" Relationship="nekreatnineModel.FK_Favorit_Nekreatnina" FromRole="Favorit" ToRole="Nekreatnina" />
+  </EntityType>
+  <EntityType Name="Izdavac">
+    <Key>
+      <PropertyRef Name="IzdavacId" />
+    </Key>
+    <Property Name="IzdavacId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NekreatninaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Nekreatnina" Relationship="nekreatnineModel.FK_Izdavac_Nekreatnina" FromRole="Izdavac" ToRole="Nekreatnina" />
+    <NavigationProperty Name="Poruka" Relationship="nekreatnineModel.FK_Poruka_Izdavac" FromRole="Izdavac" ToRole="Poruka" />
+  </EntityType>
+  <EntityType Name="Poruka">
+    <Key>
+      <PropertyRef Name="PorukaId" />
+    </Key>
+    <Property Name="PorukaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KorisnikId" Type="Int32" Nullable="false" />
+    <Property Name="IzdavacId" Type="Int32" Nullable="false" />
+    <Property Name="Naslov" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Poruka1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Izdavac" Relationship="nekreatnineModel.FK_Poruka_Izdavac" FromRole="Poruka" ToRole="Izdavac" />
+    <NavigationProperty Name="Korisnici" Relationship="nekreatnineModel.FK_Poruka_Korisnici" FromRole="Poruka" ToRole="Korisnici" />
+  </EntityType>
+  <Association Name="FK_Favorit_Korisnici">
+    <End Type="nekreatnineModel.Korisnici" Role="Korisnici" Multiplicity="1" />
+    <End Type="nekreatnineModel.Favorit" Role="Favorit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikId" />
+      </Principal>
+      <Dependent Role="Favorit">
+        <PropertyRef Name="KorisnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorit_Nekreatnina">
+    <End Type="nekreatnineModel.Nekreatnina" Role="Nekreatnina" Multiplicity="1" />
+    <End Type="nekreatnineModel.Favorit" Role="Favorit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nekreatnina">
+        <PropertyRef Name="NekreatninaId" />
+      </Principal>
+      <Dependent Role="Favorit">
+        <PropertyRef Name="NekreatninaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Izdavac_Nekreatnina">
+    <End Type="nekreatnineModel.Nekreatnina" Role="Nekreatnina" Multiplicity="1" />
+    <End Type="nekreatnineModel.Izdavac" Role="Izdavac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nekreatnina">
+        <PropertyRef Name="NekreatninaId" />
+      </Principal>
+      <Dependent Role="Izdavac">
+        <PropertyRef Name="NekreatninaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poruka_Izdavac">
+    <End Type="nekreatnineModel.Izdavac" Role="Izdavac" Multiplicity="1" />
+    <End Type="nekreatnineModel.Poruka" Role="Poruka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Izdavac">
+        <PropertyRef Name="IzdavacId" />
+      </Principal>
+      <Dependent Role="Poruka">
+        <PropertyRef Name="IzdavacId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Poruka_Korisnici">
+    <End Type="nekreatnineModel.Korisnici" Role="Korisnici" Multiplicity="1" />
+    <End Type="nekreatnineModel.Poruka" Role="Poruka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnici">
+        <PropertyRef Name="KorisnikId" />
+      </Principal>
+      <Dependent Role="Poruka">
+        <PropertyRef Name="KorisnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="get_Nekreatnine_HCI_BySearch_Result">
+    <Property Type="Int32" Name="NekreatninaId" Nullable="false" />
+    <Property Type="Decimal" Name="Cijena" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="Int32" Name="Velicina" Nullable="true" />
+    <Property Type="String" Name="Opis" Nullable="true" />
+    <Property Type="String" Name="VrstaNekreatnine" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="NazivGrada" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NazivMjesta" Nullable="true" MaxLength="50" />
+    <Property Type="Binary" Name="Slika" Nullable="true" />
+    <Property Type="Boolean" Name="Balkon" Nullable="true" />
+    <Property Type="Int32" Name="CijenaKvadrata" Nullable="true" />
+    <Property Type="Boolean" Name="Grijanje" Nullable="true" />
+    <Property Type="Boolean" Name="KablovskaTv" Nullable="true" />
+    <Property Type="Boolean" Name="Lift" Nullable="true" />
+    <Property Type="String" Name="Opremljenost" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Parking" Nullable="true" />
+    <Property Type="Boolean" Name="Plin" Nullable="true" />
+    <Property Type="Boolean" Name="Uknjizen" Nullable="true" />
+  </ComplexType>
+</Schema>
